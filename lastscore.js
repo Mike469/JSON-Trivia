@@ -1,7 +1,12 @@
 let totalscore = localStorage.getItem("totalscore");
-let button = document.getElementById("buttonId");
+let button1 = document.getElementById("buttonId");
 let messagechange = document.getElementById("message_end")
 const totals = document.getElementById('totals')
+const form = document.getElementById("entername");
+let numberoutof = document.getElementById("numbernum")
+
+let answercorrect = localStorage.getItem("answercorrect")
+// create and checks
 
 //score//
 let end = 'Score: ' + totalscore
@@ -15,8 +20,11 @@ else if (totalscore == 0){
 }
 
 
-// Attach a click event to the button
-button.addEventListener("click", function(){
+
+numberoutof.textContent = answercorrect
+
+
+button1.addEventListener("click", function(){
   // Use the `window.location` object to redirect the user to a different page
-  window.location = "index.html";
+  window.location = "startpag.html";
 });

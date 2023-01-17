@@ -14,7 +14,7 @@ start_b.addEventListener("mouseout", function () {
 
 start_b.addEventListener("click", function(){
     // Use the `window.location` object to redirect the user to a different page
-    window.location = "index.html";
+    window.location = "startpag.html";
   });
 
  

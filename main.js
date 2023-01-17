@@ -4,9 +4,11 @@ const pressBtn = document.getElementById('Begin');
 const formContainer = document.getElementById('form-container');
 const loadingSpinner = document.getElementById('loading-spinner');
 const buttonContinue = document.getElementById('submit-answer')
-const mes_container = document.getElementById('message')
+const mes_container = document.getElementById('mes_score')
 const score = document.getElementById('score')
-let score_num = 0
+let score_num = 0;
+let incorrect_answers = 0;
+let correct_answers = 0;
 
 
 // Fetching the list of categories from the Open Trivia DB API
@@ -96,28 +98,32 @@ pressBtn.addEventListener('click', (e) => {
                 for (let i = 0; all_in.length > i; i++) {
                     if (all_in[i].checked) {
                         if (all_in[i].value == data.results[currentQuestion].correct_answer) {
-                            mes_container.textContent = 'Correct'
+                            mes_container.innerHTML = `<h1>Correct</h1><h1>Score: ${score_num}</h1>`
                             score_num += 150
                             questionsAnswered += 1
                             
                             console.log(questionsAnswered)
+                            correct_answers += 1
                             if (questionsAnswered == 10){
+                                localStorage.setItem("answercorrect", correct_answers);
                                 localStorage.setItem("totalscore", score_num);
                                 lastpage()
                                 
                             }
                         } else {
-                            mes_container.textContent = `Incorrect. Answer:${data.results[currentQuestion].correct_answer}`
+                            mes_container.innerHTML = `<h1>Incorrect.</h1> <h1>Answer:${decodeHTMLEntities(data.results[currentQuestion].correct_answer)}</h1><h1>Score: ${score_num}</h1>`
                             score_num -= 50
                             questionsAnswered += 1
                             console.log(questionsAnswered)
+                            
                             if (questionsAnswered == 10){
+                                localStorage.setItem("answercorrect", correct_answers);
                                 localStorage.setItem("totalscore", score_num);
                                 lastpage()
                                 
                             }
                         }
-                        score.textContent = ` Score: ${score_num}`
+                        
                     }
                 }
 

@@ -1,0 +1,47 @@
+body {
+    background-color: #333;
+    color: #fff;
+}
+
+.endbody {
+    height: 1000px;
+    width: 100%;
+    margin: none;
+    padding: none;
+    background: #333;
+    display: grid;
+    grid-template-rows: 2fr 2fr 1fr 1fr 1fr;
+}
+
+.message_end {
+    grid-row: 1/2;
+    color: #fff;
+    align-self: center;
+    justify-self: center;
+    font-size: 50px;
+}
+
+.total_end {
+    grid-row: 2/3;
+    color: #fff;
+    align-self: center;
+    justify-self: center;
+    font-size: 50px;
+}
+button {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    grid-row: 3/4;
+    align-self: center;
+    justify-self: center;
+}
+
+button:hover {
+    background-color: #8e44ad;
+    color: #fff;
+}
